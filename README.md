@@ -14,22 +14,23 @@ It is currently work in progress and will be finalized for a camera ready versio
 - To ease installation, Docker is used. An existing Docker installation is therefore required.
 - Clone this repository.
 - Move into the project's root directory.
-- Execute *./docker/build_docker.sh* script to build the docker.
-- Execute *./start_docker.sh* to run the container in interactive mode
-- Change to the project's root directory using *cd traffic-light-detection*.
+- Execute `./docker/build_docker.sh` script to build the docker.
+- Execute `./start_docker.sh` to run the container in interactive mode
+- Change to the project's root directory using `cd traffic-light-detection`.
 - You are now ready to proceed with further steps.
 
 ## Usage
 
 ### Initialization
-- Download model weights
-    - *cd model_weights*
-    - Execute script to download the model weights from cloud *./download_model_weights.sh*
-        - If Error: Permission denied: *chmod +x download_model_weights.sh*
+- In the first step, you have to download the model weights
+    - Go into the corresponding folder: `cd model_weights`
+    - Execute script to download the weights `./download_model_weights.sh`.
+    	- The script downloads all weights. If singular weights are required, manually download [here](https://bwsyncandshare.kit.edu/s/iabWB5k3q3LKzRz)
+        - If permission denied error: `chmod +x download_model_weights.sh`
 
 
 - Run inference with downloaded model weights on a provided image
-	- Execute *./inference/inference_provided_image.sh*. This will use the YOLOv8x model to predict traffic lights for the provided image and stores the result in the newly created *output/images* folder
+	- Execute `./inference/inference_provided_image.sh`. This will use the YOLOv8x model to predict traffic lights for the provided image. The results are stored in the folder: `output/images` and can be viewed there.
 
 
 We have structured our various approaches into different folders:
