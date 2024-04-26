@@ -1,5 +1,5 @@
-docker run --gpus all --network=host --shm-size 20G\
+docker run -ti --gpus all --network=host --shm-size 20G\
  --mount type=bind,source=$(pwd),target=/workspace/traffic-light-detection/ \
-  -it tld:latest --name traffic_light_detection /bin/bash
+ --name traffic-light-detection traffic-light-detection:latest /bin/bash
 
 
