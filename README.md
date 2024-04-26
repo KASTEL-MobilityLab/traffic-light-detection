@@ -1,5 +1,9 @@
 # Traffic-Light-Detection
 
+
+https://github.com/KASTEL-MobilityLab/traffic-light-detection/assets/38588856/3a88631f-59b1-4169-b63b-c6d0e136554e
+
+
 ## Introduction to Our Work
 
 This repository encompasses our approaches and results for traffic light detection and relevance assignment.
