@@ -1,0 +1,20 @@
+# IDE 
+*.pyc
+.vscode/settings.json
+# personal datasets
+datasets/*
+data/*
+runs/*
+output/*
+# ultralytics training results
+runs/*
+# ultralytics configs
+*.yaml
+*.yml
+# cloned repos
+yolov7/
+yolov9/
+ultralytics_modified/
+# models
+*.pt
+*.sav
