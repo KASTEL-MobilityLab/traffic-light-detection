@@ -53,10 +53,8 @@ def convert_images(target_path: str, label_path: str, data_path: str, split: str
 
         # Get color images
         img_color = img.get_labeled_image()
-        img_color = cv2.resize(img_color, (1024, 440))
         img_concat_rgb = img_color[..., ::-1]
         final_img = Image.fromarray(img_concat_rgb)
-        final_img = final_img.resize((2048, 1024))
         final_img.save(os.path.join(target_path, split, f"{img_name}.jpg"))
 
     return True

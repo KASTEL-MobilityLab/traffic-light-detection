@@ -1,0 +1,8 @@
+train: 'dataset_name'/train/images
+val: 'dataset_name'/test/images
+
+#Classes
+nc: 5
+
+#classes names
+names: ['straight', 'left', 'right', 'str_left', 'str_right']

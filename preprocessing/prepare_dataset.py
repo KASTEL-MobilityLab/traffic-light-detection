@@ -146,7 +146,7 @@ def convert_labels(build_path:str, label_path:str, arrow_threshold:int, circle_t
                                     b_width    /= image_width
                                     b_height   /= image_height
 
-                                    if w > 4:
+                                    if w > 1:
                                         print_buffer.append(f"{class_id} {b_center_x} {b_center_y} {b_width} {b_height}")
 
                 if remove_image:

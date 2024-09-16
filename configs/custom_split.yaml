@@ -1,0 +1,9 @@
+train: 'dataset_name'/train/images
+val: 'dataset_name'/test/images
+#Classes
+nc: 5
+nc2: 6
+
+#classes names
+names: ["green", "red", "yellow", "red_yellow", "off"]
+names2: ["circle", "arrow_left", "arrow_right", "arrow_straight", "arrow_straight_left", "off"]

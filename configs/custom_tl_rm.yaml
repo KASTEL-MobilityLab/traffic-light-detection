@@ -1,0 +1,7 @@
+train: 'dataset_name'/train/images
+val: 'dataset_name'/test/images
+#Classes
+nc: 25
+
+#classes names
+names: ['circle_green', 'circle_red', 'off', 'circle_red_yellow', 'arrow_left_green', 'circle_yellow', 'arrow_right_red', 'arrow_left_red', 'arrow_straight_red', 'arrow_left_red_yellow', 'arrow_left_yellow', 'arrow_straight_yellow', 'arrow_right_red_yellow', 'arrow_right_green', 'arrow_right_yellow', 'arrow_straight_green', 'arrow_straight_left_green', 'arrow_straight_red_yellow', 'arrow_straight_left_red', 'arrow_straight_left_yellow', 'rm_straight', 'rm_left', 'rm_right', 'rm_str_left', 'rm_str_right']

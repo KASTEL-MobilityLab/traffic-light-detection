@@ -1,0 +1,8 @@
+train: 'dataset_name'/train/images
+val: 'dataset_name'/test/images
+
+#Classes
+nc: 1
+
+#classes names
+names: ['Ampel']
