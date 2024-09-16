@@ -1,39 +1,47 @@
-from ultralytics import YOLO, RTDETR
+from ultralytics import YOLO
 
 
-# Load a model
-model = YOLO('yolov8x.yaml')
+# Load a model pretrained on Open Images V7
+model = YOLO("yolov8x-oiv7.pt")
 
 # Train the model: Here training code for Yolov8x on DTLD dataset
-results = model.train(data='/workspace/traffic-light-detection/custom.yaml',
-                      epochs=100, # train for 100 epochs
-                      imgsz=2048, # full image size of DTLD
-                      workers=24, # adapt to available CPU cores
-                      device="0", # add more GPUs if available
-                      batch=6, # relative to how much GPU memory you have, this was used for H100 80GB
-                      nbs=64,
-                      patience=0, # disable early stopping
-                      project="yolo8x-traffic-light-detection",
-                      name="yolo8x-traffic-light-detection",
-                      pretrained=True, # use MS-Coco weights for initialization
-                      optimizer="AdamW",
-                      lr0=0.0001,
-                      warmup_epochs=1, # one epoch warmup
-                      warmup_bias_lr = 1e-9,
-                      warmup_momentum = 1e-9,
-                      cos_lr=True,
-                      lrf=0, # decay learning rate to zero with cosine function
-                      label_smoothing=0.001, # small regularization
-                      mosaic=0.6, # refer all following augmentations to here: https://docs.ultralytics.com/reference/data/augment/
-                      scale=0.4,
-                      degrees= 5,
-                      translate=0.1,
-                      save_period=1,
-                      fliplr=0.5,
-                      mixup=0.2,
-                      shear=0.3,
-                      copy_paste=0.4,
-                      close_mosaic=5,
-                      cls=0.7,
-                      plots=True
-                      )
+results = model.train(data='/workspace/traffic-light-detection/configs/custom_tl.yaml',
+
+                    name="yolo8x-traffic-light-detection",
+                    plots=True,
+
+                    ## Data
+                    epochs=100, # train for 100 epochs
+                    imgsz=2048, # full image size of DTLD
+                    workers=24, # adapt to available CPU cores
+                    patience=0, # disable early stopping
+
+                    ## GPU
+                    device=[0], # add more GPUs if available
+                    batch=3, # 3 is maximum for 24 GB VRAM (RTX 4090). If more VRAM is available, increase this value.
+                    nbs=30, # gradient accumulation steps.
+                    amp = True, # automatic mixed precision training
+
+                    ## Optimizer
+                    optimizer="SGD", # SGD is more stable for fp16 training than AdamW
+                    lr0=0.005, # initial learningrate for SGD
+                    lrf=0.001, # decay to 5e-6
+                    cos_lr=True, # cosine decay
+
+                    ## Warmup
+                    warmup_bias_lr = 0.0, # also warmup bias learning rate not just weights learning rate
+                    warmup_epochs=3, # three warmup epochs until lr0 is reached
+
+                    ## Augmentation and Regularization refer here: https://docs.ultralytics.com/reference/data/augment/
+                    label_smoothing=0.001,
+                    mosaic=0.7,
+                    close_mosaic=15,
+                    scale=0.7,
+                    degrees= 5,
+                    translate=0.1,
+                    save_period=1,
+                    fliplr=0, # do not flip images as it would change arrow directions
+                    mixup=0.1,
+                    shear=0.1,
+                    copy_paste=0.1,
+                    )

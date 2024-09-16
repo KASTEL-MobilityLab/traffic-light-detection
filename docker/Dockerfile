@@ -44,11 +44,5 @@ RUN git clone https://github.com/WongKinYiu/yolov7.git
 RUN python3 -m pip install -r yolov7/requirements.txt
 
 
-# Clone yolov9
-WORKDIR /workspace/traffic-light-detection
-RUN git clone https://github.com/WongKinYiu/yolov9.git
-RUN python3 -m pip install -r yolov9/requirements.txt
-
-
 WORKDIR /workspace
 ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
