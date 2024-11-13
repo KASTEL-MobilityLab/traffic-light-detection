@@ -68,8 +68,8 @@ We have structured our various approaches into different folders:
 - When using one dataset for different YOLO architectures, delete the cache files within the train and test folders of the dataset between the training runs.
 
 ### Preparing Dataset
-- The published models are trained with the DriveU Traffic Light Dataset (DTLD) dataset. https://www.uni-ulm.de/in/iui-drive-u/projekte/driveu-traffic-light-dataset/
-    - Request access here: https://www.uni-ulm.de/in/iui-drive-u/projekte/driveu-traffic-light-dataset/registrierungsformular-dtld/
+- The published models are trained with the DriveU Traffic Light Dataset (DTLD) dataset. [https://www.uni-ulm.de/in/iui-drive-u/projekte/driveu-traffic-light-dataset/](https://www.uni-ulm.de/en/in/institute-of-measurement-control-and-microtechnology/research/data-sets/driveu-traffic-light-dataset/)
+    - Request access here: [https://www.uni-ulm.de/in/iui-drive-u/projekte/driveu-traffic-light-dataset/registrierungsformular-dtld/](https://www.uni-ulm.de/en/in/institute-of-measurement-control-and-microtechnology/research/data-sets/driveu-traffic-light-dataset/registration-form-dtld/)
 - Make sure that dataset is mounted in Docker. Edit the start_docker.sh file or download into ./datasets/ folder.
 - Run *preprocessing/convert_tif.py* to convert all DTLD TIFF images to JPEG images into a folder of your choice.
 - Run *preprocessing/prepare_dataset.py* and specify the parameters to create the dataset in the YOLO format. There are various options for adjustments that can be made in this step. Refer to the documentation of the command-line argument options for more information.
