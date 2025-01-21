@@ -207,3 +207,15 @@ on filtered data
 |-----------------------|-----------------------------------------------|----------------------------------------------------|
 | 'ConnectionResetError: [Errno 104] Connection reset by peer' -> Means that VRAM is full | Training a yolo model using ultralytics | Use a smaller batch size/ smaller model/ lower image resolution |
 | '_pickle.UnpicklingError: STACK_GLOBAL requires str' -> Means that cache of dataset has to be deleted | Training a yolo v7 model after using same dataset with another model | Delete caches in the dataset folder |
+
+## Citing this work
+```
+@inproceedings{polley2024tld,
+  title={TLD-READY: Traffic Light Detection--Relevance Estimation and Deployment Analysis},
+  author={Polley, Nikolai and Pavlitska, Svetlana and Boualili, Yacin and Rohrbeck, Patrick and Stiller, Paul and Bangaru, Ashok Kumar and Z{\"o}llner, J Marius},
+  booktitle={27th International Conference on Intelligent Transportation Systems (ITSC)},
+  year={2024},
+  organization={IEEE}
+}
+```
+
